@@ -1,0 +1,102 @@
+version: "3.1"
+
+stories:
+  - story: Provide user information and ask for email
+    steps:
+      - intent: greet
+      - action: utter_greet_info
+      - intent: provide_name
+      - action: user_info_form
+      - active_loop: user_info_form
+      - action: utter_get_email
+      - action: action_listen
+      - intent: provide_email
+      - action: utter_get_email
+      - action: utter_thank_you
+
+
+
+
+  - story: interactive_story_1
+    steps:
+      - intent: greet
+      - action: utter_greet_info
+      - intent: provide_name
+      - action: user_info_form
+      - active_loop: user_info_form
+      - action: action_listen  # Wait for user to provide email
+      - intent: provide_email
+      - action: utter_get_email
+      - action: utter_thank_you
+
+  - story: Book hotel and ask about car rental and lux
+    steps:
+      - intent: book_hotel
+      - action: utter_ask_car_rental
+      - intent: affirm
+      - action: utter_acknowledge_car_booking
+      - action: utter_type_room
+      - intent: LUXroom
+      - action: utter_Luxroom
+      - action: utter_thank_you
+
+  - story: Book hotel and get refusal and lux
+    steps:
+      - intent: book_hotel
+      - action: utter_ask_car_rental
+      - intent: deny
+      - action: utter_acknowledge_no_car
+      - action: utter_type_room
+      - intent: LUXroom
+      - action: utter_Luxroom
+      - action: utter_thank_you
+
+  - story: Book hotel and ask about car rental and standard
+    steps:
+      - intent: book_hotel
+      - action: utter_ask_car_rental
+      - intent: affirm
+      - action: utter_acknowledge_car_booking
+      - action: utter_type_room
+      - intent: standard
+      - action: utter_standard
+      - action: utter_thank_you
+
+  - story: Book hotel and get refusal and standard
+    steps:
+      - intent: book_hotel
+      - action: utter_ask_car_rental
+      - intent: deny
+      - action: utter_acknowledge_no_car
+      - action: utter_type_room
+      - intent: standard
+      - action: utter_standard
+      - action: utter_thank_you
+
+  - story: Book hotel and ask about car rental and eco
+    steps:
+      - intent: book_hotel
+      - action: utter_ask_car_rental
+      - intent: affirm
+      - action: utter_acknowledge_car_booking
+      - action: utter_type_room
+      - intent: economic
+      - action: utter_economic
+      - action: utter_thank_you
+
+  - story: Book hotel and get refusal and eco
+    steps:
+      - intent: book_hotel
+      - action: utter_ask_car_rental
+      - intent: deny
+      - action: utter_acknowledge_no_car
+      - action: utter_type_room
+      - intent: economic
+      - action: utter_economic
+      - action: utter_thank_you
+
+
+
+
+
+
